@@ -1,0 +1,164 @@
+/*' RCB - League'*/
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore')),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/*' MI - League'*/
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians')),
+		(select count(*)
+		 from MatchDataAll
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Home */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (city = 'Bangalore' or city = 'Banglore')),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore')and (city = 'Bangalore' or city = 'Banglore')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Home */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (city = 'Mumbai' or city = 'Mumbai')),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians')and (city = 'Mumbai' or city = 'Mumbai')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Away */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and not (city = 'Bangalore' or city = 'Banglore')),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore')and not (city = 'Bangalore' or city = 'Banglore')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Away */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and not (city = 'Mumbai' or city = 'Mumbai')),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians')and not (city = 'Mumbai' or city = 'Mumbai')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Batting 1st */
+select top(1) (select count(*) 
+			   from Sheet1$IPL_Matches_2008_2020
+			   where ((team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (((winner = 'Royal Challengers Bangalore')and (result = 'runs')) or ((winner <> 'Royal Challengers Bangalore')and (result = 'wickets')) ))),
+		(select count(*)
+		 from  Sheet1$IPL_Matches_2008_2020
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore')and (result = 'runs')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Batting 2nd */
+select top(1) (select count(*) 
+			   from Sheet1$IPL_Matches_2008_2020
+			   where ((team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (((winner = 'Royal Challengers Bangalore')and (result = 'wickets')) or ((winner <> 'Royal Challengers Bangalore')and (result = 'runs')) ))),
+		(select count(*)
+		 from  Sheet1$IPL_Matches_2008_2020
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore')and (result = 'wickets')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Batting 1st */
+select top(1) (select count(*) 
+			   from Sheet1$IPL_Matches_2008_2020
+			   where ((team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (((winner = 'Mumbai Indians')and (result = 'runs')) or ((winner <> 'Mumbai Indians')and (result = 'wickets')) ))),
+		(select count(*)
+		 from  Sheet1$IPL_Matches_2008_2020
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians')and (result = 'runs')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Batting 2nd */
+select top(1) (select count(*) 
+			   from Sheet1$IPL_Matches_2008_2020
+			   where ((team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (((winner = 'Mumbai Indians')and (result = 'wickets')) or ((winner <> 'Mumbai Indians')and (result = 'runs')) ))),
+		(select count(*)
+		 from  Sheet1$IPL_Matches_2008_2020
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians')and (result = 'wickets')) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Toss Win */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and toss_winner = 'Royal Challengers Bangalore'),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore') and  toss_winner = 'Royal Challengers Bangalore') 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Toss Lost */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and toss_winner <> 'Royal Challengers Bangalore'),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore') and  toss_winner <> 'Royal Challengers Bangalore') 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Toss Win */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and toss_winner = 'Mumbai Indians'),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians') and  toss_winner = 'Mumbai Indians') 
+from Sheet1$IPL_Matches_2008_2020
+
+
+/* MI - Toss Lost */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and toss_winner <> 'Mumbai Indians'),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians') and  toss_winner <> 'Mumbai Indians') 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - Low Margin */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and ((result = 'runs' and result_margin < 24) or (result = 'wickets' and result_margin < 5))),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore') and ((result = 'runs' and result_margin < 24) or (result = 'wickets' and result_margin < 5))) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* RCB - High Margin */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and ((result = 'runs' and result_margin > 39) or (result = 'wickets' and result_margin > 6))),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Royal Challengers Bangalore' or team2 = 'Royal Challengers Bangalore') and (winner = 'Royal Challengers Bangalore') and ((result = 'runs' and result_margin > 39) or (result = 'wickets' and result_margin > 6))) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Low Margin */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and ((result = 'runs' and result_margin < 24) or (result = 'wickets' and result_margin < 5))),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians') and ((result = 'runs' and result_margin < 24) or (result = 'wickets' and result_margin < 5))) 
+from Sheet1$IPL_Matches_2008_2020
+
+/* MI - Low Margin */
+select top(1) (select count(*) 
+			   from MatchDataAll
+			   where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and ((result = 'runs' and result_margin > 39) or (result = 'wickets' and result_margin > 6))),
+		(select count(*)
+		 from MatchDataAll 
+		 where (team1 = 'Mumbai Indians' or team2 = 'Mumbai Indians') and (winner = 'Mumbai Indians') and ((result = 'runs' and result_margin > 39) or (result = 'wickets' and result_margin > 6))) 
+from Sheet1$IPL_Matches_2008_2020
+
+
